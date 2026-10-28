@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <ShouldUnsetParentConfigurationAndPlatform>false</ShouldUnsetParentConfigurationAndPlatform>
+    <!-- Override with -p:App2dRoot=C:/path/to/App2d when the checkout is elsewhere. -->
+    <App2dRoot Condition="'$(App2dRoot)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)../App2d'))</App2dRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Include="Microsoft.Xna.Framework.Color" Alias="Color4b" />
+  </ItemGroup>
+</Project>
