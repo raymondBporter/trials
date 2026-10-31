@@ -1,4 +1,5 @@
 using App2d.Core.Constraints;
+using App2d.Core.Geometry.Primitives;
 using App2d.Core.Geometry.Shapes;
 using App2d.Core.Mathematics;
 using App2d.Core.Physics;
@@ -55,14 +56,14 @@ public sealed class TrialsBike2D
         {
             FrequencyHertz = 6f,
             DampingRatio = 0.7f,
-            TranslationLimits = ConstraintLimit1D.Between(0f, 28f)
+            TranslationLimits = new Interval<float>(0f, 28f)
         };
         var shockLength = Vector2.Distance(SeatTop, RearShockMount);
         RearShock = new SpringDamperJoint2D(Frame, Swingarm, SeatTop, RearShockMount, shockLength)
         {
             FrequencyHertz = 7f,
             DampingRatio = 0.7f,
-            LengthLimits = ConstraintLimit1D.Between(shockLength - 14f, shockLength + 2f)
+            LengthLimits = new Interval<float>(shockLength - 14f, shockLength + 2f)
         };
         world.Constraints.Add(SwingarmJoint);
         world.Constraints.Add(RearJoint);

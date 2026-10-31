@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="App2d.Trials/App2d.Trials.csproj" />
+  <Project Path="../App2d/App2d.Core/App2d.Core.csproj" />
   <Project Path="App2d.Trials.Tests/App2d.Trials.Tests.csproj" />
 </Solution>

@@ -35,7 +35,7 @@ public sealed class TrialsGame2DTests
         Assert.InRange(Vector2.Distance(game.Bike.SwingarmJoint.FirstWorldAnchor, game.Bike.SwingarmJoint.SecondWorldAnchor), 0f, 0.1f);
         Assert.InRange(Math.Abs(game.Bike.FrontJoint.LateralError), 0f, 0.1f);
         Assert.InRange(game.Bike.FrontJoint.Translation, 0.1f, 27.9f);
-        Assert.InRange(game.Bike.RearShock.Length, game.Bike.RearShock.LengthLimits.Minimum, game.Bike.RearShock.RestLength - 0.1f);
+        Assert.InRange(game.Bike.RearShock.Length, game.Bike.RearShock.LengthLimits.Min, game.Bike.RearShock.RestLength - 0.1f);
     }
 
     [Fact]
@@ -110,7 +110,7 @@ public sealed class TrialsGame2DTests
             minimumShockLength = Math.Min(minimumShockLength, game.Bike.RearShock.Length);
             Assert.InRange(game.Bike.FrontJoint.Translation, -0.2f, 28.2f);
             Assert.InRange(Math.Abs(game.Bike.FrontJoint.LateralError), 0f, 0.2f);
-            Assert.InRange(game.Bike.RearShock.Length, game.Bike.RearShock.LengthLimits.Minimum - 0.2f, game.Bike.RearShock.LengthLimits.Maximum + 0.2f);
+            Assert.InRange(game.Bike.RearShock.Length, game.Bike.RearShock.LengthLimits.Min - 0.2f, game.Bike.RearShock.LengthLimits.Max + 0.2f);
             Assert.InRange(Vector2.Distance(game.Bike.SwingarmJoint.FirstWorldAnchor, game.Bike.SwingarmJoint.SecondWorldAnchor), 0f, 0.2f);
         }
         Assert.True(peakCompression > sag + 1f, $"Sag {sag}, peak {peakCompression}");
